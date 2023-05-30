@@ -4,7 +4,7 @@ class Juego{
         this.jugadores = jugadores;
         if(jugadores <= 2 || jugadores > 6){
             console.log("No cumples con los jugadores míminos para jugar.");
-        } else{
+        } else {
             console.log("Cumples con los requisitos minimos");
         }
     }
