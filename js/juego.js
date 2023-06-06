@@ -3,6 +3,7 @@ class Juego{
     constructor(jugadores) {
         this.jugadores = jugadores;
     }
+    
     empiezaPirmero(){
         
     }

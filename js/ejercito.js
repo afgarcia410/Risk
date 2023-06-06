@@ -7,6 +7,18 @@ class Ejercito {
     this.tipo = ["Infanteria", "Caballeria", "Artilleria"];
     this.puntos = [1, 5, 10];
   }
+  agregarEjercito(cantidad){
+    this.cantidad +=cantidad;
+    console.log(this.cantidad);
+  }
+  //No se si quitarlo o no
+  quitarEjercito(cantidad){
+    if(this.cantidad > cantidad){
+      this.cantidad -=cantidad;
+    } else{
+      console.log("No tienes cantidad suficiente ");
+    }
+  }
   ataque(defensa) {
     let dadoAtacante = new Dado("rojo", "atacante");
     let dadoAtacante2 = new Dado("rojo", "atacante");
@@ -18,8 +30,7 @@ class Ejercito {
     let valorDadoAtacante3 = dadoAtacante3.tirarDado();
     let valorDadoDefensor = dadoDefensor.tirarDado();
     let valorDadoDefensor2 = dadoDefensor2.tirarDado();
-    let sumaAtacante =
-      valorDadoAtacante + valorDadoAtacante2 + valorDadoAtacante3;
+    let sumaAtacante = valorDadoAtacante + valorDadoAtacante2 + valorDadoAtacante3;
     let sumaDefensor = valorDadoDefensor + valorDadoDefensor2;
     console.log(sumaAtacante);
     console.log(sumaDefensor);
@@ -41,5 +52,10 @@ class Ejercito {
     return this.color[Math.floor(Math.random() * this.color.length)];
   }
 }
-
+let ejercito1 =new Ejercito(10);
+console.log(ejercito1);
+ejercito1.agregarEjercito(5);
+console.log(ejercito1);
+ejercito1.quitarEjercito(10);
+console.log(ejercito1);
 export { Ejercito };
