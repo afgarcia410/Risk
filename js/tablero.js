@@ -2,24 +2,30 @@ class Tablero{
     constructor(tablero){
         this.tablero = tablero.continentes;
     }
+    /*Modificar*/
     repartirTerritorio(jugadores){
       const territorios = [];
     for (let continente of this.tablero) {
       territorios.push(continente.territorios);
     }
-
+    
     const territoriosNoAsignados = territorios.slice();
+    console.log(territoriosNoAsignados.length);
     const numJugadores = jugadores.length;
-
     while (territoriosNoAsignados.length > 0) {
       for (let i = 0; i < numJugadores; i++) {
-        if (territoriosNoAsignados.length === 0) break;
+        if (territoriosNoAsignados.length === 0) {
+          console.log("Ya esta");
+        }else{
+          //Modificar
+          const indiceTerritorio = Math.floor(Math.random() * territoriosNoAsignados.length);
+          //const indice = Math.floor(Math.random() * territoriosNoAsignados.length);
+          const territorio = territoriosNoAsignados[indiceTerritorio];
+          territorio.propietario = jugadores[i];
 
-        const indiceTerritorio = Math.floor(Math.random() * territoriosNoAsignados.length);
-        const territorio = territoriosNoAsignados[indiceTerritorio];
-        territorio.propietario = jugadores[i];
-
-        territoriosNoAsignados.splice(indiceTerritorio, 1);
+  
+          territoriosNoAsignados.splice(indiceTerritorio, 1);
+        };
       }
     }
     }
@@ -27,7 +33,7 @@ class Tablero{
     mostrarEstado() {
       console.log("Tablero actualmente:");
       for (let continente of this.tablero) {
-        console.log('Continente: '+continente.nombre);
+        console.log('-----------------Continente: '+continente.nombre+'--------------------------');
         for (let territorio of continente.territorios) {
           let propietario = territorio.propietario;
           if (propietario) {
@@ -37,7 +43,6 @@ class Tablero{
           }
           console.log("Territorio: " + territorio.nombre + ", Propietario: " + propietario);
         }
-          
         }
       }
 }  

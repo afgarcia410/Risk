@@ -52,10 +52,10 @@ class Ejercito {
     return this.color[Math.floor(Math.random() * this.color.length)];
   }
 }
-let ejercito1 =new Ejercito(10);
-console.log(ejercito1);
-ejercito1.agregarEjercito(5);
-console.log(ejercito1);
-ejercito1.quitarEjercito(10);
-console.log(ejercito1);
+// let ejercito1 =new Ejercito(10);
+// console.log(ejercito1);
+// ejercito1.agregarEjercito(5);
+// console.log(ejercito1);
+// ejercito1.quitarEjercito(10);
+// console.log(ejercito1);
 export { Ejercito };
