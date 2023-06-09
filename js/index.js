@@ -288,17 +288,22 @@ for (let index = 0; index < opcion.value; index++) {
 });
 reparteTerritorio.addEventListener("click", function () {
   if (opcion.value === "3") {
+    
     a = mesa.repartirTerritorio(listaJugadores);
+    console.log(a);
     mesa.mostrarEstado();
     reparteTerritorio.style.display = "none";
   } else if(opcion.value === "4"){
     a= mesa.repartirTerritorio(listaJugadores);
     mesa.mostrarEstado();
+    reparteTerritorio.style.display = "none";
   } else if(opcion.value === "5"){
     a = mesa.repartirTerritorio(listaJugadores);
     mesa.mostrarEstado();
+    reparteTerritorio.style.display = "none";
   } else if(opcion.value === "6"){
     a = mesa.repartirTerritorio(listaJugadores);
     mesa.mostrarEstado();
+    reparteTerritorio.style.display = "none";
   }
 });

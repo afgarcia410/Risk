@@ -4,30 +4,25 @@ class Tablero{
     }
     /*Modificar*/
     repartirTerritorio(jugadores){
-      const territorios = [];
-    for (let continente of this.tablero) {
-      territorios.push(continente.territorios);
-    }
-    
-    const territoriosNoAsignados = territorios.slice();
-    console.log(territoriosNoAsignados.length);
-    const numJugadores = jugadores.length;
-    while (territoriosNoAsignados.length > 0) {
-      for (let i = 0; i < numJugadores; i++) {
-        if (territoriosNoAsignados.length === 0) {
-          console.log("Ya esta");
-        }else{
-          //Modificar
-          const indiceTerritorio = Math.floor(Math.random() * territoriosNoAsignados.length);
-          //const indice = Math.floor(Math.random() * territoriosNoAsignados.length);
-          const territorio = territoriosNoAsignados[indiceTerritorio];
-          territorio.propietario = jugadores[i];
+      var jugadoresActuales = jugadores.slice();
 
-  
-          territoriosNoAsignados.splice(indiceTerritorio, 1);
-        };
+      // Recorremos los continentes del tablero
+      for (var i = 0; i < this.tablero.length; i++) {
+        var continente = this.tablero[i];
+        var territorios = continente.territorios;
+    
+        // Recorremos los territorios del continente
+        for (var j = 0; j < territorios.length; j++) {
+          var territorio = territorios[j];
+    
+          // Asignamos un jugador aleatorio al territorio
+          var jugadorIndex = Math.floor(Math.random() * jugadoresActuales.length);
+          territorio.propietario = jugadoresActuales[jugadorIndex];
+    
+          // Eliminamos al jugador asignado de la lista de jugadores disponibles
+          //jugadoresActuales.splice(jugadorIndex, 1);
+        }
       }
-    }
     }
 
     mostrarEstado() {
