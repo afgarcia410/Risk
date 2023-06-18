@@ -1,5 +1,5 @@
 import { Ejercito } from "./ejercito.js";
-import { Dado } from "./dado.js";
+
 import { Tablero } from "./tablero.js";
 import { Tarjeta } from "./tarjetas.js";
 import { Juego } from "./juego.js";
@@ -250,12 +250,11 @@ const listaJugadores = [];
 
 botonJugador.addEventListener("click", function () {
 for (let index = 0; index < opcion.value; index++) {
-  listaJugadores.push(new Player(new Ejercito(cantidadEjercito[opcion.value - 3 ])));
+  let numPlayer=index+1;
+  listaJugadores.push(new Player(new Ejercito(cantidadEjercito[opcion.value - 3 ]),"Jugador "+numPlayer));
 }
   if (opcion.value === "3") {
     console.log("Has escogido la opcion de 3 jugadores");
-    console.log(listaJugadores);
-    console.log(mesa);
     botonJugador.style.display = "none";
     opcion.style.display = "none";
     tituloPlayer.style.display = "none";
@@ -287,43 +286,91 @@ for (let index = 0; index < opcion.value; index++) {
   reparteTerritorio.style.display = "block";
 });
 reparteTerritorio.addEventListener("click", function () {
-  for(let i = 0; i < opcion.value; i++){
-    var createDiv = document.createElement("div");
-    var creaElemento = document.createElement("h1");
-    var mostarTr = document.createElement("p");
-    var titulo = document.createTextNode("Jugador " + i);
-    createDiv.style.display = "inline";
-    createDiv.appendChild(titulo);
-    creaElemento.appendChild(titulo);
-    mostarTr.appendChild(createDiv);
-    document.body.appendChild(createDiv);
-    createDiv.appendChild(creaElemento);
-    createDiv.appendChild(mostarTr);
-  }
+  let mostrarTerritorio;
   if (opcion.value === "3") {
     a = mesa.repartirTerritorio(listaJugadores);
-    console.log(a);
     mesa.mostrarEstado();
-
-    mesa.mostrarPorJugador();
+    mostrarTerritorio = mesa.obtenerTerritoriosPorJugador(listaJugadores);
+    for (const jugador in mostrarTerritorio) {
+      const territorios = mostrarTerritorio[jugador];
+      
+      const jugadorDiv = document.createElement("div");
+      const jugadorHeader = document.createElement("h1");
+      jugadorHeader.textContent =jugador;
+      jugadorDiv.appendChild(jugadorHeader);
+      for (const territorio of territorios) {
+        console.log('Territorios de '+jugador+':'+territorios.join(", "));
+        const territorioElement = document.createElement("p");
+        territorioElement.textContent = territorio;
+        jugadorDiv.appendChild(territorioElement);
+      }
+      document.body.appendChild(jugadorDiv);
+    }
+    //mesa.atacar(31,18);
     reparteTerritorio.style.display = "none";
   } else if(opcion.value === "4"){
-    a= mesa.repartirTerritorio(listaJugadores);
+    a = mesa.repartirTerritorio(listaJugadores);
     mesa.mostrarEstado();
-
-    mesa.mostrarPorJugador();
+    mostrarTerritorio = mesa.obtenerTerritoriosPorJugador(listaJugadores);
+    for (const jugador in mostrarTerritorio) {
+      const territorios = mostrarTerritorio[jugador];
+      
+      const jugadorDiv = document.createElement("div");
+      const jugadorHeader = document.createElement("h1");
+      jugadorHeader.textContent = jugador;
+      jugadorDiv.appendChild(jugadorHeader);
+      for (const territorio of territorios) {
+        console.log('Territorios de '+jugador+':'+territorios.join(", "));
+        const territorioElement = document.createElement("p");
+        territorioElement.textContent = territorio;
+        jugadorDiv.appendChild(territorioElement);
+      }
+      document.body.appendChild(jugadorDiv);
+    }
+    //mesa.atacar(31,18);
     reparteTerritorio.style.display = "none";
   } else if(opcion.value === "5"){
     a = mesa.repartirTerritorio(listaJugadores);
     mesa.mostrarEstado();
-
-    mesa.mostrarPorJugador();
+    mostrarTerritorio = mesa.obtenerTerritoriosPorJugador(listaJugadores);
+    for (const jugador in mostrarTerritorio) {
+      const territorios = mostrarTerritorio[jugador];
+      
+      const jugadorDiv = document.createElement("div");
+      const jugadorHeader = document.createElement("h1");
+      jugadorHeader.textContent = jugador;
+      jugadorDiv.appendChild(jugadorHeader);
+      for (const territorio of territorios) {
+        console.log('Territorios de '+jugador+':'+territorios.join(", "));
+        const territorioElement = document.createElement("p");
+        territorioElement.textContent = territorio;
+        jugadorDiv.appendChild(territorioElement);
+      }
+      document.body.appendChild(jugadorDiv);
+    }
+    //mesa.atacar(31,18);
     reparteTerritorio.style.display = "none";
   } else if(opcion.value === "6"){
     a = mesa.repartirTerritorio(listaJugadores);
     mesa.mostrarEstado();
-    
-    mesa.mostrarPorJugador();
+    mostrarTerritorio = mesa.obtenerTerritoriosPorJugador(listaJugadores);
+    for (const jugador in mostrarTerritorio) {
+      const territorios = mostrarTerritorio[jugador];
+      
+      const jugadorDiv = document.createElement("div");
+      const jugadorHeader = document.createElement("h1");
+      jugadorHeader.textContent =jugador;
+      jugadorDiv.appendChild(jugadorHeader);
+      for (const territorio of territorios) {
+        console.log('Territorios de '+jugador+':'+territorios.join(", "));
+        const territorioElement = document.createElement("p");
+        territorioElement.textContent = territorio;
+        jugadorDiv.appendChild(territorioElement);
+      }
+      document.body.appendChild(jugadorDiv);
+    }
+    //mesa.atacar(31,18);
+    //alert("Mensaje de ataque");
     reparteTerritorio.style.display = "none";
   }
 });

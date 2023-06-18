@@ -1,7 +1,8 @@
 //Intentar como implementarlo
 class Player {
-constructor(ejercito){
+constructor(ejercito,nombre){
     this.ejercito = ejercito;
+    this.nombre = nombre;
     //this.cartas = cartas;
 }
 }
