@@ -90,14 +90,6 @@ let sumaDefensor = valorDadoDefensor + valorDadoDefensor2;
       if (territorio.id === idTerritorioDefensor) {
         territorioDefensor = territorio;
       }
-
-      if (territorioAtacante && territorioDefensor) {
-        break;
-      }
-    }
-
-    if (territorioAtacante && territorioDefensor) {
-      break;
     }
   }
 
@@ -108,9 +100,9 @@ let sumaDefensor = valorDadoDefensor + valorDadoDefensor2;
   }
 
 
-  if(sumaAtacante>sumaDefensor){
+  if(sumaAtacante > sumaDefensor){
     console.log('Ataque exitoso: '+territorioAtacante.nombre+' atacó a '+ territorioDefensor.nombre+'.');
-  } else if(sumaAtacante<sumaDefensor){
+  } else if(sumaAtacante < sumaDefensor){
     console.log('Ataque fallido.');
   } else {
     console.log('Ataque fallido.');
