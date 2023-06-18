@@ -61,7 +61,6 @@ class Tablero {
   }
   return territoriosPorJugador;
 }
-//Atacar
 
 atacar(idTerritorioAtacante, idTerritorioDefensor) {
 
@@ -78,9 +77,7 @@ let valorDadoDefensor = dadoDefensor.tirarDado();
 let valorDadoDefensor2 = dadoDefensor2.tirarDado();
 let sumaAtacante = valorDadoAtacante + valorDadoAtacante2 + valorDadoAtacante3;
 let sumaDefensor = valorDadoDefensor + valorDadoDefensor2;
-console.log(sumaAtacante);
-console.log(sumaDefensor);
-  // Buscar los territorios según sus id
+
   let territorioAtacante = null;
   let territorioDefensor = null;
 
@@ -104,13 +101,13 @@ console.log(sumaDefensor);
     }
   }
 
-  // Verificar si los territorios son vecinos
+
   if (!territorioAtacante || !territorioDefensor || !this.sonVecinos(territorioAtacante, territorioDefensor)) {
     console.log("Los territorios no son vecinos o no existen.");
     return;
   }
 
-  // Realizar la lógica de ataque aquí...
+
   if(sumaAtacante>sumaDefensor){
     console.log('Ataque exitoso: '+territorioAtacante.nombre+' atacó a '+ territorioDefensor.nombre+'.');
   } else if(sumaAtacante<sumaDefensor){
